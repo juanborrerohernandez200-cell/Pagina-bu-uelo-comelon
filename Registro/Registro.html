@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Buñuelón POS | Don Buñuelón Comelón</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: #111;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        /* Fondo */
+
+        .fondo {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 20% 20%, #ffd600 0%, transparent 25%),
+                radial-gradient(circle at 80% 80%, #d90404 0%, transparent 25%),
+                #111;
+            z-index: -2;
+        }
+
+        .circulo {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(2px);
+            opacity: .25;
+        }
+
+        .circulo1 {
+            width: 250px;
+            height: 250px;
+            background: #ffd600;
+            top: -80px;
+            left: -80px;
+        }
+
+        .circulo2 {
+            width: 300px;
+            height: 300px;
+            background: #d90404;
+            bottom: -120px;
+            right: -100px;
+        }
+
+        /* Contenedor principal */
+
+        .contenedor {
+            width: 950px;
+            max-width: 94%;
+            min-height: 570px;
+
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
+            background: #fff;
+
+            border-radius: 25px;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 25px 60px rgba(0,0,0,.55);
+
+            animation: aparecer .8s ease;
+        }
+
+        @keyframes aparecer {
+
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+        /* Panel izquierdo */
+
+        .presentacion {
+            background: linear-gradient(
+                145deg,
+                #ffd600,
+                #ffcc00
+            );
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+
+            padding: 45px;
+
+            position: relative;
+        }
+
+        .presentacion::before {
+            content: "";
+            position: absolute;
+
+            width: 220px;
+            height: 220px;
+
+            background: #d90404;
+
+            border-radius: 50%;
+
+            top: -100px;
+            left: -100px;
+
+            opacity: .15;
+        }
+
+        .presentacion::after {
+            content: "";
+            position: absolute;
+
+            width: 180px;
+            height: 180px;
+
+            background: #111;
+
+            border-radius: 50%;
+
+            bottom: -90px;
+            right: -70px;
+
+            opacity: .10;
+        }
+
+        /* Logo */
+
+        .logo {
+            width: 190px;
+            height: 190px;
+
+            background: #fff;
+
+            border-radius: 50%;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            border: 8px solid #111;
+
+            box-shadow:
+                0 10px 25px rgba(0,0,0,.25);
+
+            margin-bottom: 25px;
+
+            position: relative;
+            z-index: 2;
+        }
+
+        .logo span {
+            font-size: 105px;
+        }
+
+        .presentacion h1 {
+            font-size: 39px;
+
+            font-weight: 900;
+
+            color: #111;
+
+            text-transform: uppercase;
+
+            margin-bottom: 5px;
+
+            position: relative;
+            z-index: 2;
+        }
+
+        .presentacion h2 {
+            color: #d90404;
+
+            font-size: 22px;
+
+            margin-bottom: 18px;
+
+            position: relative;
+            z-index: 2;
+        }
+
+        .slogan {
+            font-size: 16px;
+
+            font-weight: bold;
+
+            color: #222;
+
+            font-style: italic;
+
+            position: relative;
+            z-index: 2;
+        }
+
+        .pos {
+            margin-top: 25px;
+
+            background: #111;
+
+            color: #ffd600;
+
+            padding: 10px 25px;
+
+            border-radius: 30px;
+
+            font-weight: bold;
+
+            letter-spacing: 2px;
+
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Panel login */
+
+        .login {
+            padding: 55px;
+
+            display: flex;
+
+            justify-content: center;
+
+            flex-direction: column;
+
+            background: #fff;
+        }
+
+        .login h2 {
+            font-size: 31px;
+
+            color: #111;
+
+            margin-bottom: 8px;
+        }
+
+        .descripcion {
+            color: #777;
+
+            margin-bottom: 28px;
+
+            font-size: 15px;
+        }
+
+        /* Campos */
+
+        .campo {
+            margin-bottom: 20px;
+        }
+
+        .campo label {
+            display: block;
+
+            font-weight: bold;
+
+            color: #222;
+
+            margin-bottom: 8px;
+        }
+
+        .input-box {
+            position: relative;
+        }
+
+        .input-box span {
+            position: absolute;
+
+            left: 13px;
+
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            font-size: 19px;
+        }
+
+        .input-box input {
+            width: 100%;
+
+            padding: 14px 14px 14px 45px;
+
+            border: 2px solid #e5e5e5;
+
+            border-radius: 10px;
+
+            outline: none;
+
+            font-size: 15px;
+
+            transition: .3s;
+        }
+
+        .input-box input:focus {
+            border-color: #ffd600;
+
+            box-shadow: 0 0 0 3px rgba(255,214,0,.18);
+        }
+
+        /* Opciones */
+
+        .opciones {
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            font-size: 13px;
+
+            margin-bottom: 20px;
+        }
+
+        .recordar {
+            display: flex;
+
+            align-items: center;
+
+            gap: 6px;
+        }
+
+        .recordar input {
+            accent-color: #d90404;
+        }
+
+        .recuperar {
+            color: #d90404;
+
+            text-decoration: none;
+
+            font-weight: bold;
+        }
+
+        .recuperar:hover {
+            text-decoration: underline;
+        }
+
+        /* Botón */
+
+        .btn-login {
+            width: 100%;
+
+            padding: 15px;
+
+            border: none;
+
+            border-radius: 10px;
+
+            background: #d90404;
+
+            color: white;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: .3s;
+
+            box-shadow: 0 6px 15px rgba(217,4,4,.25);
+        }
+
+        .btn-login:hover {
+            background: #b80303;
+
+            transform: translateY(-2px);
+
+            box-shadow: 0 9px 20px rgba(217,4,4,.35);
+        }
+
+        /* Mensaje */
+
+        #mensaje {
+            text-align: center;
+
+            margin-top: 15px;
+
+            font-size: 14px;
+
+            font-weight: bold;
+        }
+
+        /* Pie */
+
+        .pie {
+            text-align: center;
+
+            color: #999;
+
+            font-size: 12px;
+
+            margin-top: 30px;
+        }
+
+        .pie strong {
+            color: #111;
+        }
+
+        /* Responsive */
+
+        @media(max-width: 750px) {
+
+            body {
+                overflow: auto;
+                padding: 20px 0;
+            }
+
+            .contenedor {
+                grid-template-columns: 1fr;
+            }
+
+            .presentacion {
+                padding: 35px 20px;
+            }
+
+            .logo {
+                 width: 190px;
+    height: 160px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 8px solid #111;
+    box-shadow: 0 10px 25px rgba(0,0,0,.25);
+    margin-bottom: 25px;
+    overflow: hidden;
+            }
+
+           .logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+            .presentacion h1 {
+                font-size: 30px;
+            }
+
+            .login {
+                padding: 35px 25px;
+            }
+
+        }
+
+    .img-logo{
+        width: 8rem;
+    }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="fondo">
+        <div class="circulo circulo1"></div>
+        <div class="circulo circulo2"></div>
+    </div>
+
+
+    <div class="contenedor">
+
+
+        <!-- PRESENTACIÓN -->
+
+        <section class="presentacion">
+
+           <div class="logo">
+    <img class="img-logo" src="donbunuelon.jpg" alt="Logo Don Buñuelón Comelón">
+</div>
+
+            <h1>Don Buñuelón</h1>
+
+            <h2>Comelón</h2>
+
+            <p class="slogan">
+                “Delicioso sabor en cada momento”
+            </p>
+
+            <div class="pos">
+                BUÑUELÓN POS
+            </div>
+
+        </section>
+
+
+        <!-- LOGIN -->
+
+        <section class="login">
+
+            <h2>Bienvenido </h2>
+
+            <p class="descripcion">
+                Ingresa al sistema para administrar
+                las ventas y operaciones de Don Buñuelón Comelón.
+            </p>
+
+
+            <form id="formulario">
+
+
+                <!-- USUARIO -->
+
+                <div class="campo">
+
+                    <label for="usuario">
+                        Usuario o correo
+                    </label>
+
+                    <div class="input-box">
+
+                        <span>👤</span>
+
+                        <input
+                            type="text"
+                            id="usuario"
+                            placeholder="Ingresa tu usuario"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- CONTRASEÑA -->
+
+                <div class="campo">
+
+                    <label for="password">
+                        Contraseña
+                    </label>
+
+                    <div class="input-box">
+
+                        <span>🔒</span>
+
+                        <input
+                            type="password"
+                            id="password"
+                            placeholder="Ingresa tu contraseña"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- OPCIONES -->
+
+                <div class="opciones">
+
+                    <label class="recordar">
+
+                        <input
+                            type="checkbox"
+                            id="recordar"
+                        >
+
+                        Recordarme
+
+                    </label>
+
+
+                    <a
+                        href="#"
+                        class="recuperar"
+                        onclick="recuperarPassword()"
+                    >
+                        ¿Olvidaste tu contraseña?
+                    </a>
+
+                </div>
+
+
+                <!-- BOTÓN -->
+
+                <button
+                    type="submit"
+                    class="btn-login"
+                    
+                >
+                    INGRESAR AL SISTEMA
+                </button>
+
+
+                <div id="mensaje"></div>
+
+            </form>
+
+
+            <div class="pie">
+
+                Sistema desarrollado para
+                <strong>Don Buñuelón Comelón</strong>
+
+                <br>
+
+                © 2026 Buñuelón POS
+
+            </div>
+
+        </section>
+
+    </div>
+
+
+    <script>
+
+        const formulario =
+            document.getElementById("formulario");
+
+        const mensaje =
+            document.getElementById("mensaje");
+
+
+        formulario.addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+
+            const usuario =
+                document.getElementById("usuario").value.trim();
+
+            const password =
+                document.getElementById("password").value;
+
+
+            /*
+                USUARIOS DE PRUEBA
+
+                Usuario: admin
+                Contraseña: 12345
+
+                Usuario: vendedor
+                Contraseña: 12345
+            */
+
+
+            if (
+                (usuario === "admin" ||
+                usuario === "vendedor") &&
+                password === "12345"
+            ) {
+
+                localStorage.setItem(
+                    "u",
+                    usuario
+                );
+
+
+                mensaje.style.color = "#16803c";
+
+                mensaje.textContent =
+                    "✓ Inicio de sesión exitoso. Entrando...";
+
+
+                setTimeout(function() {
+
+                    window.location.href="Admin2/admin.html";
+
+                }, 700);
+
+            }
+
+            else {
+
+                mensaje.style.color = "#d90404";
+
+                mensaje.textContent =
+                    "✕ Usuario o contraseña incorrectos.";
+
+            }
+
+        });
+
+
+        function recuperarPassword() {
+
+            alert(
+                "Para recuperar tu contraseña, comunícate con el administrador del sistema."
+            );
+
+        }
+
+    </script>
+
+</body>
+
+</html>

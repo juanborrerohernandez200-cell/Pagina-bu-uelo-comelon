@@ -1,0 +1,1059 @@
+<style>
+/* Estilos Principales - Paleta: Negro, Rojo y Amarillo */
+* {
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #ffffff;
+}
+
+body {
+    background-color: #0d0d0d;
+}
+
+.app-container {
+    width: 96%;
+    max-width: 1400px;
+    margin: 20px auto;
+    background-color: #121212;
+    color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(255, 0, 0, 0.15);
+    border: 1px solid #222;
+    overflow: hidden;
+}
+
+/* Encabezado */
+.encabezado {
+    background: linear-gradient(135deg, #111111 0%, #200000 100%);
+    border-bottom: 3px solid #E50914;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.brand-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    padding: 6px 12px;
+    border-radius: 8px;
+    box-shadow: 0 0 12px rgba(255, 204, 0, 0.4);
+}
+
+.logo-img {
+    height: 65px;
+    width: auto;
+    max-width: 220px;
+    object-fit: contain;
+}
+
+.titulo-app {
+    font-size: 24px;
+    font-weight: 800;
+    color: #FFCC00;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.subtitulo-app {
+    font-size: 13px;
+    color: #ffffff;
+    margin-top: 2px;
+}
+
+/* Navegación por pestañas */
+.navbar {
+    display: flex;
+    background-color: #1a1a1a;
+    border-bottom: 1px solid #333;
+    overflow-x: auto;
+}
+
+.nav-tab {
+    padding: 14px 22px;
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    user-select: none;
+}
+
+.nav-tab:hover {
+    background-color: #262626;
+    color: #FFCC00;
+}
+
+.nav-tab.active {
+    color: #FFCC00;
+    border-bottom: 3px solid #E50914;
+    background-color: #222;
+}
+
+/* Contenido de Pestañas */
+.tab-content {
+    display: none;
+    padding: 25px;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Tarjetas y Rejillas */
+.grid-kpi {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+    margin-bottom: 25px;
+}
+
+.kpi-card {
+    background-color: #1e1e1e;
+    border-left: 5px solid #FFCC00;
+    padding: 18px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.kpi-card.gastos {
+    border-left-color: #E50914;
+}
+
+.kpi-card.neto {
+    border-left-color: #00E676;
+}
+
+.kpi-title {
+    font-size: 13px;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.kpi-value {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffffff;
+    margin-top: 8px;
+}
+
+.grid-dos-columnas {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+@media (max-width: 900px) {
+    .grid-dos-columnas {
+        grid-template-columns: 1fr;
+    }
+}
+
+.tarjeta-panel {
+    background-color: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.titulo-seccion {
+    font-size: 18px;
+    font-weight: bold;
+    color: #FFCC00;
+    border-bottom: 2px solid #E50914;
+    padding-bottom: 8px;
+    margin-bottom: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Formulario */
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 6px;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px 12px;
+    background-color: #2a2a2a;
+    border: 1px solid #444;
+    color: #ffffff;
+    border-radius: 6px;
+    font-size: 14px;
+    outline: none;
+    transition: border 0.3s;
+}
+
+input:focus, select:focus {
+    border-color: #FFCC00;
+}
+
+option {
+    background-color: #1a1a1a;
+    color: #ffffff;
+}
+
+.btn {
+    background-color: #E50914;
+    color: #ffffff;
+    padding: 11px 18px;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    font-size: 15px;
+    transition: background 0.3s ease;
+    text-align: center;
+}
+
+.btn:hover {
+    background-color: #b80710;
+}
+
+.btn-amarillo {
+    background-color: #FFCC00;
+    color: #ffffff;
+    text-shadow: 1px 1px 2px #000;
+}
+
+.btn-amarillo:hover {
+    background-color: #e6b800;
+}
+
+/* Tablas */
+.tabla-container {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+th, td {
+    padding: 12px 10px;
+    text-align: left;
+    border-bottom: 1px solid #333;
+    color: #ffffff;
+}
+
+th {
+    background-color: #242424;
+    color: #FFCC00;
+    font-weight: bold;
+}
+
+tr:hover {
+    background-color: #222;
+}
+
+/* Badges de Estado */
+.badge {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: inline-block;
+    color: #ffffff;
+}
+
+.badge-ok {
+    background-color: #1b5e20;
+}
+
+.badge-low {
+    background-color: #f57f17;
+}
+
+.badge-out {
+    background-color: #b71c1c;
+    animation: pulseRed 1.5s infinite;
+}
+
+@keyframes pulseRed {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+/* Botones +/- de Stock */
+.btn-stock {
+    padding: 4px 8px;
+    margin: 0 2px;
+    font-size: 12px;
+    border-radius: 4px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    color: #ffffff;
+}
+
+.btn-add {
+    background-color: #2e7d32;
+}
+
+.btn-remove {
+    background-color: #c62828;
+}
+
+.btn-add:hover { background-color: #1b5e20; }
+.btn-remove:hover { background-color: #b71c1c; }
+
+/* Selector de tiempo de reportes */
+.time-filter {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.time-btn {
+    padding: 8px 14px;
+    background-color: #2a2a2a;
+    border: 1px solid #444;
+    color: #ffffff;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.time-btn.active {
+    background-color: #FFCC00;
+    color: #ffffff;
+    text-shadow: 1px 1px 2px #000;
+    font-weight: bold;
+}
+
+.alerta-stock {
+    background-color: #3b0000;
+    border: 1px solid #E50914;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    font-size: 13px;
+    display: none;
+}
+</style>
+
+<div class="app-container">
+
+    <!-- Encabezado con Logo Oficial de Don Buñuelón Comelón -->
+    <div class="encabezado">
+        <div class="brand-section">
+            <div class="logo-wrapper">
+                <img id="logo-img" 
+                     <img class="logo-img" src="C:\Users\jennifer\Downloads\don buñuelon comelon (1)_page-0001.jpg" alt="logo don buñuelon comelon">
+            </div>
+            <div>
+                <div class="titulo-app">Don Buñuelón Comelón</div>
+                <div class="subtitulo-app">Sistema de Administración e Inventario</div>
+            </div>
+        </div>
+        <div>
+            <span style="font-size: 12px; color: #ffffff;">Panel de Control v2.5</span>
+        </div>
+    </div>
+
+    <!-- Menú Principal -->
+    <div class="navbar">
+        <div class="nav-tab active" onclick="cambiarPestana('dashboard', this)">📊 Dashboard</div>
+        <div class="nav-tab" onclick="cambiarPestana('inventario', this)">📦 Inventario</div>
+        <div class="nav-tab" onclick="cambiarPestana('ventas', this)">🛒 Registrar Venta</div>
+        <div class="nav-tab" onclick="cambiarPestana('gastos', this)">💸 Registrar Gastos</div>
+        <div class="nav-tab" onclick="cambiarPestana('reportes', this)">📈 Reportes Financieros</div>
+    </div>
+
+    <!-- PESTAÑA 1: DASHBOARD -->
+    <div id="tab-dashboard" class="tab-content active">
+        <div class="grid-kpi">
+            <div class="kpi-card">
+                <div class="kpi-title">Ventas de Hoy</div>
+                <div class="kpi-value" id="kpi-ventas-hoy">$0</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-title">Ventas de la Semana</div>
+                <div class="kpi-value" id="kpi-ventas-semana">$0</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-title">Ventas del Mes</div>
+                <div class="kpi-value" id="kpi-ventas-mes">$0</div>
+            </div>
+            <div class="kpi-card gastos">
+                <div class="kpi-title">Gastos del Mes</div>
+                <div class="kpi-value" id="kpi-gastos-mes">$0</div>
+            </div>
+            <div class="kpi-card neto">
+                <div class="kpi-title">Ganancia Neta Mes</div>
+                <div class="kpi-value" id="kpi-neto-mes">$0</div>
+            </div>
+        </div>
+
+        <div class="grid-dos-columnas">
+            <div class="tarjeta-panel">
+                <div class="titulo-seccion">Últimas Ventas Registradas</div>
+                <div class="tabla-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Hora</th>
+                                <th>Cliente</th>
+                                <th>Producto</th>
+                                <th>Cant.</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabla-ultimas-ventas">
+                            <tr><td colspan="5" style="text-align:center; color:#ffffff;">No hay ventas hoy</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="tarjeta-panel">
+                <div class="titulo-seccion">Alertas de Inventario Bajo</div>
+                <div class="tabla-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Producto</th>
+                                <th>Stock</th>
+                                <th>Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabla-alertas-stock">
+                            <tr><td colspan="3" style="text-align:center; color:#ffffff;">Stock normal</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PESTAÑA 2: INVENTARIO -->
+    <div id="tab-inventario" class="tab-content">
+        <div class="tarjeta-panel">
+            <div class="titulo-seccion">Control de Inventario de Productos</div>
+            <div class="tabla-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Producto</th>
+                            <th>Variante / Presentación</th>
+                            <th>Precio Unitario</th>
+                            <th>Stock Disponible</th>
+                            <th>Estado</th>
+                            <th>Gestión de Stock</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabla-inventario">
+                        <!-- Dinámico -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- PESTAÑA 3: REGISTRAR VENTA -->
+    <div id="tab-ventas" class="tab-content">
+        <div class="grid-dos-columnas">
+            <div class="tarjeta-panel">
+                <div class="titulo-seccion">Nueva Venta</div>
+                
+                <div id="alerta-sin-stock" class="alerta-stock">
+                    ⚠️ Producto AGOTADO. No se puede realizar la venta.
+                </div>
+
+                <div class="form-group">
+                    <label>Nombre del Cliente:</label>
+                    <input type="text" id="v-cliente-nombre" placeholder="Ej. Juan Pérez (Opcional)">
+                </div>
+
+                <div class="form-group">
+                    <label>Teléfono / Cédula:</label>
+                    <input type="text" id="v-cliente-id" placeholder="Ej. 3001234567 (Opcional)">
+                </div>
+
+                <div class="form-group">
+                    <label>Seleccionar Producto:</label>
+                    <select id="v-producto" onchange="actualizarFormVenta()">
+                        <!-- Dinámico -->
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Cantidad:</label>
+                    <input type="number" id="v-cantidad" value="1" min="1" oninput="actualizarTotalVenta()">
+                </div>
+
+                <div class="form-group">
+                    <label>Método de Pago:</label>
+                    <select id="v-pago">
+                        <option value="Efectivo">Efectivo</option>
+                        <option value="Nequi/Daviplata">Nequi / Daviplata</option>
+                        <option value="Tarjeta">Tarjeta Débito/Crédito</option>
+                    </select>
+                </div>
+
+                <div style="background-color: #222; padding: 15px; border-radius: 6px; margin-bottom: 15px; border-left: 4px solid #FFCC00;">
+                    <span style="font-size: 14px; color: #ffffff;">Total a Pagar:</span>
+                    <div id="v-total-pagar" style="font-size: 26px; font-weight: bold; color: #FFCC00;">$0</div>
+                </div>
+
+                <button class="btn btn-amarillo" id="btn-completar-venta" onclick="procesarVenta()">Completar Venta</button>
+            </div>
+
+            <div class="tarjeta-panel">
+                <div class="titulo-seccion">Historial de Clientes Registrados</div>
+                <div class="tabla-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Cliente</th>
+                                <th>Contacto</th>
+                                <th>Última Compra</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabla-clientes">
+                            <!-- Dinámico -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PESTAÑA 4: GASTOS -->
+    <div id="tab-gastos" class="tab-content">
+        <div class="grid-dos-columnas">
+            <div class="tarjeta-panel">
+                <div class="titulo-seccion">Registrar Gasto del Negocio</div>
+                
+                <div class="form-group">
+                    <label>Concepto o Descripción:</label>
+                    <input type="text" id="g-concepto" placeholder="Ej. Compra de harina, Pago de luz, etc.">
+                </div>
+
+                <div class="form-group">
+                    <label>Categoría:</label>
+                    <select id="g-categoria">
+                        <option value="Insumos">Insumos / Materia Prima</option>
+                        <option value="Servicios">Servicios Públicos</option>
+                        <option value="Nomina">Nómina / Sueldos</option>
+                        <option value="Mantenimiento">Mantenimiento</option>
+                        <option value="Varios">Otros Varios</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Monto ($):</label>
+                    <input type="number" id="g-monto" placeholder="Ej. 50000">
+                </div>
+
+                <button class="btn" onclick="registrarGasto()">Registrar Gasto</button>
+            </div>
+
+            <div class="tarjeta-panel">
+                <div class="titulo-seccion">Gastos Recientes</div>
+                <div class="tabla-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Fecha</th>
+                                <th>Concepto</th>
+                                <th>Categoría</th>
+                                <th>Monto</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabla-gastos-recientes">
+                            <!-- Dinámico -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PESTAÑA 5: REPORTES -->
+    <div id="tab-reportes" class="tab-content">
+        <div class="tarjeta-panel">
+            <div class="titulo-seccion">
+                <span>Balance Financiero Consolidado</span>
+            </div>
+
+            <div class="time-filter">
+                <div class="time-btn active" onclick="filtrarReporte('diario', this)">Hoy</div>
+                <div class="time-btn" onclick="filtrarReporte('semanal', this)">Esta Semana</div>
+                <div class="time-btn" onclick="filtrarReporte('mensual', this)">Este Mes</div>
+                <div class="time-btn" onclick="filtrarReporte('anual', this)">Este Año</div>
+            </div>
+
+            <div class="grid-kpi">
+                <div class="kpi-card">
+                    <div class="kpi-title">Ingresos Totales</div>
+                    <div class="kpi-value" id="rep-ingresos">$0</div>
+                </div>
+                <div class="kpi-card gastos">
+                    <div class="kpi-title">Gastos Totales</div>
+                    <div class="kpi-value" id="rep-gastos">$0</div>
+                </div>
+                <div class="kpi-card neto">
+                    <div class="kpi-title">Utilidad Neta</div>
+                    <div class="kpi-value" id="rep-neto">$0</div>
+                </div>
+            </div>
+
+            <div class="titulo-seccion" style="margin-top: 25px;">Detalle de Operaciones en el Período Seleccionado</div>
+            <div class="tabla-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Fecha/Hora</th>
+                            <th>Tipo</th>
+                            <th>Descripción</th>
+                            <th>Valor</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabla-reporte-detalle">
+                        <!-- Dinámico -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+// Base de datos de Productos Don Buñuelón Comelón
+const productosBase = [
+    { id: 1, nombre: "Empanada", variante: "Estándar", precio: 2500, stock: 40 },
+    { id: 2, nombre: "Pastel de Papa", variante: "Estándar", precio: 3000, stock: 25 },
+    { id: 3, nombre: "Pastel de Yuca", variante: "Estándar", precio: 3000, stock: 20 },
+    { id: 4, nombre: "Gomitas", variante: "Paquete", precio: 1000, stock: 50 },
+    { id: 5, nombre: "Tinto", variante: "Vasito", precio: 1200, stock: 100 },
+    { id: 6, nombre: "Café con Leche", variante: "Vasito", precio: 2000, stock: 60 },
+    { id: 7, nombre: "Café Normal", variante: "Vasito", precio: 1500, stock: 80 },
+    { id: 8, nombre: "Desayuno", variante: "Completo", precio: 6000, stock: 15 },
+    { id: 9, nombre: "Jugo Natural", variante: "En Agua", precio: 1500, stock: 30 },
+    { id: 10, nombre: "Jugo Natural", variante: "En Leche", precio: 2500, stock: 30 },
+    { id: 11, nombre: "Papas de Paquete", variante: "Bolsa", precio: 1500, stock: 35 },
+    { id: 12, nombre: "Galletas", variante: "Paquete", precio: 1000, stock: 45 },
+    { id: 13, nombre: "Chicles Trident", variante: "Caja", precio: 1200, stock: 60 },
+    { id: 14, nombre: "Coca Cola", variante: "Vidrio Personal", precio: 3000, stock: 24 },
+    { id: 15, nombre: "Coca Cola", variante: "Plástico Personal Pequeña", precio: 2500, stock: 24 },
+    { id: 16, nombre: "Gaseosa Ginger", variante: "Personal", precio: 2500, stock: 18 },
+    { id: 17, nombre: "Agua Sin Gas", variante: "Botella", precio: 1500, stock: 40 },
+    { id: 18, nombre: "Agua Con Gas", variante: "Botella", precio: 1800, stock: 30 },
+    { id: 19, nombre: "Sprite", variante: "Personal", precio: 2500, stock: 20 }
+];
+
+// Almacenamiento Local
+let inventario = JSON.parse(localStorage.getItem('db_inventario')) || productosBase;
+let ventas = JSON.parse(localStorage.getItem('db_ventas')) || [];
+let gastos = JSON.parse(localStorage.getItem('db_gastos')) || [];
+let clientes = JSON.parse(localStorage.getItem('db_clientes')) || [];
+
+function guardarAlmacenamiento() {
+    localStorage.setItem('db_inventario', JSON.stringify(inventario));
+    localStorage.setItem('db_ventas', JSON.stringify(ventas));
+    localStorage.setItem('db_gastos', JSON.stringify(gastos));
+    localStorage.setItem('db_clientes', JSON.stringify(clientes));
+}
+
+// Navegación
+function cambiarPestana(id, tabEl) {
+    document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+    
+    document.getElementById('tab-' + id).classList.add('active');
+    tabEl.classList.add('active');
+
+    if (id === 'dashboard') actualizarDashboard();
+    if (id === 'inventario') renderizarInventario();
+    if (id === 'ventas') prepararFormVentas();
+    if (id === 'gastos') renderizarGastos();
+    if (id === 'reportes') filtrarReporte('diario', document.querySelector('.time-btn'));
+}
+
+function formatCOP(num) {
+    return '$' + Number(num).toLocaleString('es-CO');
+}
+
+// INVENTARIO
+function modificarStock(id, cantidad) {
+    const prod = inventario.find(p => p.id === id);
+    if (prod) {
+        prod.stock = Math.max(0, prod.stock + cantidad);
+        guardarAlmacenamiento();
+        renderizarInventario();
+        actualizarDashboard();
+    }
+}
+
+function renderizarInventario() {
+    const tbody = document.getElementById('tabla-inventario');
+    tbody.innerHTML = '';
+
+    inventario.forEach(p => {
+        let badgeClass = 'badge-ok';
+        let estadoTxt = 'Disponible';
+
+        if (p.stock === 0) {
+            badgeClass = 'badge-out';
+            estadoTxt = 'AGOTADO';
+        } else if (p.stock <= 5) {
+            badgeClass = 'badge-low';
+            estadoTxt = 'Bajo Stock';
+        }
+
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+            <td style="font-weight: bold; color:#ffffff;">${p.nombre}</td>
+            <td style="color:#ffffff;">${p.variante}</td>
+            <td style="color:#ffffff;">${formatCOP(p.precio)}</td>
+            <td style="font-weight:bold; font-size:16px; color:#ffffff;">${p.stock}</td>
+            <td><span class="badge ${badgeClass}">${estadoTxt}</span></td>
+            <td>
+                <button class="btn-stock btn-remove" onclick="modificarStock(${p.id}, -10)">-10</button>
+                <button class="btn-stock btn-remove" onclick="modificarStock(${p.id}, -1)">-1</button>
+                <button class="btn-stock btn-add" onclick="modificarStock(${p.id}, 1)">+1</button>
+                <button class="btn-stock btn-add" onclick="modificarStock(${p.id}, 10)">+10</button>
+            </td>
+        `;
+        tbody.appendChild(tr);
+    });
+}
+
+// VENTAS
+function prepararFormVentas() {
+    const select = document.getElementById('v-producto');
+    select.innerHTML = '';
+
+    inventario.forEach(p => {
+        const option = document.createElement('option');
+        option.value = p.id;
+        option.textContent = `${p.nombre} (${p.variante}) - ${formatCOP(p.precio)} [Stock: ${p.stock}]`;
+        select.appendChild(option);
+    });
+
+    actualizarFormVenta();
+    renderizarClientes();
+}
+
+function actualizarFormVenta() {
+    const pId = parseInt(document.getElementById('v-producto').value);
+    const prod = inventario.find(p => p.id === pId);
+    const alerta = document.getElementById('alerta-sin-stock');
+    const btn = document.getElementById('btn-completar-venta');
+
+    if (prod && prod.stock === 0) {
+        alerta.style.display = 'block';
+        btn.disabled = true;
+        btn.style.opacity = '0.5';
+    } else {
+        alerta.style.display = 'none';
+        btn.disabled = false;
+        btn.style.opacity = '1';
+    }
+
+    actualizarTotalVenta();
+}
+
+function actualizarTotalVenta() {
+    const pId = parseInt(document.getElementById('v-producto').value);
+    const cant = parseInt(document.getElementById('v-cantidad').value) || 0;
+    const prod = inventario.find(p => p.id === pId);
+
+    if (prod) {
+        const total = prod.precio * cant;
+        document.getElementById('v-total-pagar').textContent = formatCOP(total);
+    }
+}
+
+function procesarVenta() {
+    const pId = parseInt(document.getElementById('v-producto').value);
+    const cant = parseInt(document.getElementById('v-cantidad').value) || 1;
+    const cNombre = document.getElementById('v-cliente-nombre').value.trim() || 'Cliente General';
+    const cId = document.getElementById('v-cliente-id').value.trim() || 'N/A';
+    const pago = document.getElementById('v-pago').value;
+
+    const prod = inventario.find(p => p.id === pId);
+
+    if (!prod || prod.stock < cant) {
+        alert('No hay stock suficiente para realizar la venta.');
+        return;
+    }
+
+    prod.stock -= cant;
+
+    const total = prod.precio * cant;
+    const venta = {
+        id: Date.now(),
+        fecha: new Date().toISOString(),
+        cliente: cNombre,
+        clienteId: cId,
+        producto: `${prod.nombre} (${prod.variante})`,
+        cantidad: cant,
+        total: total,
+        metodoPago: pago
+    };
+
+    ventas.unshift(venta);
+
+    if (cNombre !== 'Cliente General') {
+        const idx = clientes.findIndex(c => c.nombre.toLowerCase() === cNombre.toLowerCase());
+        if (idx >= 0) {
+            clientes[idx].ultimaCompra = new Date().toLocaleDateString();
+            clientes[idx].contacto = cId;
+        } else {
+            clientes.unshift({ nombre: cNombre, contacto: cId, ultimaCompra: new Date().toLocaleDateString() });
+        }
+    }
+
+    guardarAlmacenamiento();
+    alert('¡Venta realizada con éxito!');
+
+    document.getElementById('v-cliente-nombre').value = '';
+    document.getElementById('v-cliente-id').value = '';
+    document.getElementById('v-cantidad').value = 1;
+
+    prepararFormVentas();
+    actualizarDashboard();
+}
+
+function renderizarClientes() {
+    const tbody = document.getElementById('tabla-clientes');
+    tbody.innerHTML = '';
+
+    if (clientes.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="3" style="text-align:center; color:#ffffff;">No hay clientes registrados</td></tr>';
+        return;
+    }
+
+    clientes.forEach(c => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+            <td style="font-weight:bold; color:#FFCC00;">${c.nombre}</td>
+            <td style="color:#ffffff;">${c.contacto}</td>
+            <td style="color:#ffffff;">${c.ultimaCompra}</td>
+        `;
+        tbody.appendChild(tr);
+    });
+}
+
+// GASTOS
+function registrarGasto() {
+    const concepto = document.getElementById('g-concepto').value.trim();
+    const cat = document.getElementById('g-categoria').value;
+    const monto = parseFloat(document.getElementById('g-monto').value);
+
+    if (!concepto || !monto || monto <= 0) {
+        alert('Por favor ingrese una descripción y monto válido.');
+        return;
+    }
+
+    const gasto = {
+        id: Date.now(),
+        fecha: new Date().toISOString(),
+        concepto: concepto,
+        categoria: cat,
+        monto: monto
+    };
+
+    gastos.unshift(gasto);
+    guardarAlmacenamiento();
+
+    document.getElementById('g-concepto').value = '';
+    document.getElementById('g-monto').value = '';
+
+    renderizarGastos();
+    actualizarDashboard();
+    alert('Gasto registrado exitosamente');
+}
+
+function renderizarGastos() {
+    const tbody = document.getElementById('tabla-gastos-recientes');
+    tbody.innerHTML = '';
+
+    if (gastos.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="4" style="text-align:center; color:#ffffff;">No hay gastos registrados</td></tr>';
+        return;
+    }
+
+    gastos.slice(0, 10).forEach(g => {
+        const tr = document.createElement('tr');
+        const f = new Date(g.fecha).toLocaleDateString();
+        tr.innerHTML = `
+            <td style="color:#ffffff;">${f}</td>
+            <td style="color:#ffffff;">${g.concepto}</td>
+            <td><span class="badge" style="background:#333; color:#ffffff;">${g.categoria}</span></td>
+            <td style="color:#E50914; font-weight:bold;">-${formatCOP(g.monto)}</td>
+        `;
+        tbody.appendChild(tr);
+    });
+}
+
+// DASHBOARD KPI
+function actualizarDashboard() {
+    const ahora = new Date();
+    const hoyStr = ahora.toDateString();
+
+    let totalVentasHoy = 0;
+    let totalVentasSemana = 0;
+    let totalVentasMes = 0;
+    let totalGastosMes = 0;
+
+    const hace7dias = new Date();
+    hace7dias.setDate(ahora.getDate() - 7);
+
+    ventas.forEach(v => {
+        const f = new Date(v.fecha);
+        if (f.toDateString() === hoyStr) totalVentasHoy += v.total;
+        if (f >= hace7dias) totalVentasSemana += v.total;
+        if (f.getMonth() === ahora.getMonth() && f.getFullYear() === ahora.getFullYear()) totalVentasMes += v.total;
+    });
+
+    gastos.forEach(g => {
+        const f = new Date(g.fecha);
+        if (f.getMonth() === ahora.getMonth() && f.getFullYear() === ahora.getFullYear()) totalGastosMes += g.monto;
+    });
+
+    document.getElementById('kpi-ventas-hoy').textContent = formatCOP(totalVentasHoy);
+    document.getElementById('kpi-ventas-semana').textContent = formatCOP(totalVentasSemana);
+    document.getElementById('kpi-ventas-mes').textContent = formatCOP(totalVentasMes);
+    document.getElementById('kpi-gastos-mes').textContent = formatCOP(totalGastosMes);
+    document.getElementById('kpi-neto-mes').textContent = formatCOP(totalVentasMes - totalGastosMes);
+
+    const tbodyVentas = document.getElementById('tabla-ultimas-ventas');
+    tbodyVentas.innerHTML = '';
+    const ventasHoy = ventas.filter(v => new Date(v.fecha).toDateString() === hoyStr);
+
+    if (ventasHoy.length === 0) {
+        tbodyVentas.innerHTML = '<tr><td colspan="5" style="text-align:center; color:#ffffff;">No hay ventas registradas hoy</td></tr>';
+    } else {
+        ventasHoy.slice(0, 5).forEach(v => {
+            const hora = new Date(v.fecha).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+                <td style="color:#ffffff;">${hora}</td>
+                <td style="color:#ffffff;">${v.cliente}</td>
+                <td style="color:#ffffff;">${v.producto}</td>
+                <td style="color:#ffffff;">${v.cantidad}</td>
+                <td style="color:#FFCC00; font-weight:bold;">${formatCOP(v.total)}</td>
+            `;
+            tbodyVentas.appendChild(tr);
+        });
+    }
+
+    const tbodyAlertas = document.getElementById('tabla-alertas-stock');
+    tbodyAlertas.innerHTML = '';
+    const enAlerta = inventario.filter(p => p.stock <= 5);
+
+    if (enAlerta.length === 0) {
+        tbodyAlertas.innerHTML = '<tr><td colspan="3" style="text-align:center; color:#ffffff;">Todo el inventario está en buen nivel</td></tr>';
+    } else {
+        enAlerta.forEach(p => {
+            let badgeClass = p.stock === 0 ? 'badge-out' : 'badge-low';
+            let txt = p.stock === 0 ? 'AGOTADO' : 'Bajo Stock';
+
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+                <td style="color:#ffffff;">${p.nombre} (${p.variante})</td>
+                <td style="font-weight:bold; color:#ffffff;">${p.stock}</td>
+                <td><span class="badge ${badgeClass}">${txt}</span></td>
+            `;
+            tbodyAlertas.appendChild(tr);
+        });
+    }
+}
+
+// REPORTES
+function filtrarReporte(periodo, btn) {
+    if (btn) {
+        document.querySelectorAll('.time-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+    }
+
+    const ahora = new Date();
+    let fnFiltro = (fechaStr) => false;
+
+    if (periodo === 'diario') {
+        fnFiltro = (f) => new Date(f).toDateString() === ahora.toDateString();
+    } else if (periodo === 'semanal') {
+        const hace7 = new Date();
+        hace7.setDate(ahora.getDate() - 7);
+        fnFiltro = (f) => new Date(f) >= hace7;
+    } else if (periodo === 'mensual') {
+        fnFiltro = (f) => new Date(f).getMonth() === ahora.getMonth() && new Date(f).getFullYear() === ahora.getFullYear();
+    } else if (periodo === 'anual') {
+        fnFiltro = (f) => new Date(f).getFullYear() === ahora.getFullYear();
+    }
+
+    const vFiltradas = ventas.filter(v => fnFiltro(v.fecha));
+    const gFiltrados = gastos.filter(g => fnFiltro(g.fecha));
+
+    const totalIngresos = vFiltradas.reduce((a, b) => a + b.total, 0);
+    const totalGastos = gFiltrados.reduce((a, b) => a + b.monto, 0);
+
+    document.getElementById('rep-ingresos').textContent = formatCOP(totalIngresos);
+    document.getElementById('rep-gastos').textContent = formatCOP(totalGastos);
+    document.getElementById('rep-neto').textContent = formatCOP(totalIngresos - totalGastos);
+
+    const tbody = document.getElementById('tabla-reporte-detalle');
+    tbody.innerHTML = '';
+
+    const combinados = [
+        ...vFiltradas.map(v => ({ fecha: v.fecha, tipo: 'Venta', desc: `${v.producto} (x${v.cantidad})`, valor: v.total })),
+        ...gFiltrados.map(g => ({ fecha: g.fecha, tipo: 'Gasto', desc: `${g.concepto} [${g.categoria}]`, valor: -g.monto }))
+    ].sort((a, b) => new Date(b.fecha) - new Date(a.fecha));
+
+    if (combinados.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="4" style="text-align:center; color:#ffffff;">No hay registros en este período</td></tr>';
+        return;
+    }
+
+    combinados.forEach(item => {
+        const tr = document.createElement('tr');
+        const color = item.tipo === 'Venta' ? '#00E676' : '#E50914';
+        tr.innerHTML = `
+            <td style="color:#ffffff;">${new Date(item.fecha).toLocaleString()}</td>
+            <td><span class="badge" style="background:${item.tipo === 'Venta' ? '#1b5e20' : '#b71c1c'}">${item.tipo}</span></td>
+            <td style="color:#ffffff;">${item.desc}</td>
+            <td style="font-weight:bold; color:${color};">${formatCOP(item.valor)}</td>
+        `;
+        tbody.appendChild(tr);
+    });
+}
+
+// Carga Inicial
+actualizarDashboard();
+</script>

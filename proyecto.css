@@ -1,0 +1,187 @@
+* {
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+}
+
+
+body {
+
+    background-color: #F4F4F1;
+
+    color: #29291F;
+
+    font-family: 'Space Grotesk', sans-serif;
+
+}
+
+
+
+/* ========================= */
+/* BARRA SUPERIOR */
+/* ========================= */
+
+header {
+
+    width: 100%;
+
+    height: 75px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 7%;
+
+    background-color: #F2C500;
+
+}
+
+
+
+/* LOGO */
+
+.logo img {
+
+    height: 100%;
+
+    width: 150px;
+
+    font-weight: 700;
+
+}
+
+
+
+/* OPCIONES */
+
+nav {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 30px;
+
+}
+
+
+nav a {
+
+    color: #29291F;
+
+    text-decoration: none;
+
+    font-size: 17px;
+
+}
+
+
+nav a:hover {
+
+    color: #A94643;
+
+}
+
+
+
+/* ========================= */
+/* BIENVENIDA */
+/* ========================= */
+
+main {
+
+    min-height: calc(100vh - 75px);
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+}
+
+
+.bienvenida {
+
+    max-width: 700px;
+
+    padding: 30px;
+
+}
+
+
+.bienvenida h1 {
+
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: 50px;
+
+    font-weight: 400;
+
+    margin-bottom: 5px;
+
+}
+
+
+.bienvenida h2 {
+
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: 70px;
+
+    color: #B84F4C;
+
+    margin-bottom: 25px;
+
+}
+
+
+.bienvenida p {
+
+    font-size: 19px;
+
+    line-height: 1.6;
+
+    margin-bottom: 35px;
+
+}
+
+
+
+/* BOTÓN */
+
+.boton {
+
+    display: inline-block;
+
+    padding: 14px 30px;
+
+    background-color: #B84F4C;
+
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 10px;
+
+    font-size: 17px;
+
+    transition: 0.3s;
+
+}
+
+
+.boton:hover {
+
+    background-color: #963C39;
+
+}
